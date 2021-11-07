@@ -2,7 +2,7 @@
 
 Name:           stb
 Version:        0
-Release:        0.%{git}.0
+Release:        0.%{git}.1
 Summary:        Single-File Public Domain Libraries for C/C++ 
 License:        MIT OR Unlicense
 Group:          Development/Libraries/C and C++
@@ -78,7 +78,18 @@ install -m0644 *.h %buildroot%_includedir/stb
 # stb_vorbis.c is a header file..
 cp stb_vorbis.c %buildroot%_includedir/stb/stb_vorbis.h
 
+mkdir -p %{buildroot}%{_datadir}/pkgconfig
+cat >%{buildroot}%{_datadir}/pkgconfig/stb.pc <<EOF
+prefix=%{_prefix}
+includedir=%{_includedir}/stb
+
+Name: %{name}
+Description: %{summary}
+Version: %{version}
+Cflags: -I\${includedir}
+EOF
 
 %files devel
 %doc README.md docs
 %_includedir/stb
+%{_datadir}/pkgconfig/stb.pc
