@@ -1,12 +1,16 @@
+%define git 20210910
+
 Name:           stb
-Version:        2.36.1594640766.b42009b
-Release:        0
+Version:        0
+Release:        0.%{git}.0
 Summary:        Single-File Public Domain Libraries for C/C++ 
 License:        MIT OR Unlicense
 Group:          Development/Libraries/C and C++
 URL:            https://github.com/nothings/stb
-Source0:        stb-%{version}.tar.xz
-BuildRequires:  c++_compiler
+# git clone --recursive https://github.com/nothings/stb
+# Then create .xz archive with name-gitdate
+Source0:        stb-%{git}.tar.xz
+
 BuildArch:      noarch
 
 %description
