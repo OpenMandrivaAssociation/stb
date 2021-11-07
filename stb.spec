@@ -67,7 +67,7 @@ stb_leakcheck.h             | misc             | quick-and-dirty malloc/free lea
 
 
 %prep
-%setup -qm %{name}-%{git}
+%setup -qn %{name}-%{git}
 
 %build
 # nothing to do
