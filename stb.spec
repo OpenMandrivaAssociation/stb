@@ -78,9 +78,6 @@ install -m0644 *.h %buildroot%_includedir/stb
 # stb_vorbis.c is a header file..
 cp stb_vorbis.c %buildroot%_includedir/stb/stb_vorbis.h
 
-%check
-cd tests
-make && ./a.out
 
 %files devel
 %doc README.md docs
