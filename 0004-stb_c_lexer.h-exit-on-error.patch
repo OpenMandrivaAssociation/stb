@@ -1,0 +1,25 @@
+From a931d3b6442d1e1d5206ec8e19882f1ab6f58a48 Mon Sep 17 00:00:00 2001
+From: yangfl <yangfl@users.noreply.github.com>
+Date: Wed, 10 Jul 2019 10:58:05 +0800
+Subject: [PATCH 4/8] stb_c_lexer.h: exit on error
+
+---
+ stb_c_lexer.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/stb_c_lexer.h b/stb_c_lexer.h
+index bf89dca..2101a73 100644
+--- a/stb_c_lexer.h
++++ b/stb_c_lexer.h
+@@ -889,7 +889,7 @@ int main(int argc, char **argv)
+    while (stb_c_lexer_get_token(&lex)) {
+       if (lex.token == CLEX_parse_error) {
+          printf("\n<<<PARSE ERROR>>>\n");
+-         break;
++         return 1;
+       }
+       print_token(&lex);
+       printf("  ");
+-- 
+2.35.1
+

@@ -1,0 +1,11 @@
+diff -Nrup a/stb_dxt.h b/stb_dxt.h
+--- a/stb_dxt.h	2024-02-13 08:49:35.000000000 +0100
++++ b/stb_dxt.h	2024-05-18 07:42:18.354945650 +0200
+@@ -83,6 +83,7 @@ STBDDEF void stb_compress_bc5_block(unsi
+ // #define STB_DXT_USE_ROUNDING_BIAS
+ 
+ #include <stdlib.h>
++#include <string.h>
+ 
+ #if !defined(STBD_FABS)
+ #include <math.h>

@@ -1,0 +1,42 @@
+From daa450d7fe909901e63e41d094d5825ef4a867b3 Mon Sep 17 00:00:00 2001
+From: yangfl <yangfl@users.noreply.github.com>
+Date: Wed, 10 Jul 2019 10:56:42 +0800
+Subject: [PATCH 3/8] stb.h: fix pointer detection
+
+---
+ deprecated/stb.h | 19 +++----------------
+ 1 file changed, 3 insertions(+), 16 deletions(-)
+
+diff --git a/deprecated/stb.h b/deprecated/stb.h
+index 1633c3b..4a0923b 100644
+--- a/deprecated/stb.h
++++ b/deprecated/stb.h
+@@ -376,22 +376,9 @@ typedef char stb__testsize2_32[sizeof(stb_uint32)==4 ? 1 : -1];
+ #endif
+ typedef char stb__testsize2_64[sizeof(stb_uint64)==8 ? 1 : -1];
+ 
+-// add platform-specific ways of checking for sizeof(char*) == 8,
+-// and make those define STB_PTR64
+-#if defined(_WIN64) || defined(__x86_64__) || defined(__ia64__) || defined(__LP64__)
+-  #define STB_PTR64
+-#endif
+-
+-#ifdef STB_PTR64
+-typedef char stb__testsize2_ptr[sizeof(char *) == 8];
+-typedef stb_uint64 stb_uinta;
+-typedef stb_int64  stb_inta;
+-#else
+-typedef char stb__testsize2_ptr[sizeof(char *) == 4];
+-typedef stb_uint32 stb_uinta;
+-typedef stb_int32  stb_inta;
+-#endif
+-typedef char stb__testsize2_uinta[sizeof(stb_uinta)==sizeof(char*) ? 1 : -1];
++#include <stdint.h>
++typedef uintptr_t stb_uinta;
++typedef intptr_t  stb_inta;
+ 
+ // if so, we should define an int type that is the pointer size. until then,
+ // we'll have to make do with this (which is not the same at all!)
+-- 
+2.35.1
+
