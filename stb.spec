@@ -27,6 +27,7 @@ Patch5:         0005-stb_sprintf.h-fix-pointer-detection.patch
 # https://bugzilla.redhat.com/show_bug.cgi?id=2278402
 Patch10:          %{url}/pull/1559.patch
 
+BuildRequires:	make
 %description
 stb single-file public domain libraries for C/C++.
 
