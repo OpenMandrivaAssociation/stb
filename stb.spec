@@ -13,7 +13,7 @@ Group:          System/Libraries
 Summary:        stb single-file public domain libraries for C/C++
 License:        MIT or Public Domain
 URL:            https://github.com/nothings/stb
-Source0:        https://github.com/nothings/stb/archive/%{commit}.tar.gz
+Source0:        https://github.com/nothings/stb/archive/stb-%{commit}.tar.gz
 Patch0:         stb-add-missing-include.patch
 # Debian patches (P1->P10)
 Patch1:         0001-Makefile-refactor.patch
