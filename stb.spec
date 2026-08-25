@@ -2,8 +2,8 @@
 %define libname %mklibname %{name} %{major}
 %define devname %mklibname %{name} -d
 
-%define commit f0569113c93ad095470c54bf34a17b36646bbbb5
-%define date 20250314
+%define commit 2c980bb59875b0d32144a71867fbdebb2f77cd20
+%define date 20260802
 %define rel 1
 
 Name:           stb
@@ -13,7 +13,7 @@ Group:          System/Libraries
 Summary:        stb single-file public domain libraries for C/C++
 License:        MIT or Public Domain
 URL:            https://github.com/nothings/stb
-Source0:        https://github.com/nothings/stb/archive/%{commit}.tar.gz
+Source0:        https://github.com/nothings/stb/archive/stb-%{commit}.tar.gz
 Patch0:         stb-add-missing-include.patch
 # Debian patches (P1->P10)
 Patch1:         0001-Makefile-refactor.patch
