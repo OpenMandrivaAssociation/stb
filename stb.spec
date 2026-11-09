@@ -2,8 +2,8 @@
 %define libname %mklibname %{name} %{major}
 %define devname %mklibname %{name} -d
 
-%define commit 2c980bb59875b0d32144a71867fbdebb2f77cd20
-%define date 20260802
+%define commit 4e9b368bfc071e97206ea5c6adba68dd0cbf8897
+%define date 20261107
 %define rel 1
 
 Name:           stb
@@ -58,6 +58,9 @@ Header files for development with %{name}.
 
 %install
 %make_install LIBDIR=%{_lib}
+
+install -D --preserve-timestamps --mode=0644 \
+	--target='%{buildroot}%{_includedir}/stb' deprecated/stb_image_resize.h
 
 %files -n %{libname}
 %{_libdir}/lib%{name}.so.%{major}{,.*}
