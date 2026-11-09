@@ -18,9 +18,8 @@ Patch0:         stb-add-missing-include.patch
 # Debian patches (P1->P10)
 Patch1:         0001-Makefile-refactor.patch
 Patch2:         0002-Mask-out-rectangle-packing-replacement-in-stb_truety.patch
-
+Patch3:		0003-stb.h-fix-pointer-detection.patch
 Patch4:         0004-stb_c_lexer.h-exit-on-error.patch
-Patch5:         0005-stb_sprintf.h-fix-pointer-detection.patch
 # Out of bounds heap buffer write (GHSL-2023-171/CVE-2023-45681)
 # https://github.com/nothings/stb/pull/1559
 # Fixes CVE-2023-45681 and duplicate CVE-2023-47212
