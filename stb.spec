@@ -2,8 +2,8 @@
 %define libname %mklibname %{name} %{major}
 %define devname %mklibname %{name} -d
 
-%define commit 2c980bb59875b0d32144a71867fbdebb2f77cd20
-%define date 20260802
+%define commit 4e9b368bfc071e97206ea5c6adba68dd0cbf8897
+%define date 20261107
 %define rel 1
 
 Name:           stb
@@ -18,9 +18,8 @@ Patch0:         stb-add-missing-include.patch
 # Debian patches (P1->P10)
 Patch1:         0001-Makefile-refactor.patch
 Patch2:         0002-Mask-out-rectangle-packing-replacement-in-stb_truety.patch
-Patch3:         0003-stb.h-fix-pointer-detection.patch
+Patch3:		0003-stb.h-fix-pointer-detection.patch
 Patch4:         0004-stb_c_lexer.h-exit-on-error.patch
-Patch5:         0005-stb_sprintf.h-fix-pointer-detection.patch
 # Out of bounds heap buffer write (GHSL-2023-171/CVE-2023-45681)
 # https://github.com/nothings/stb/pull/1559
 # Fixes CVE-2023-45681 and duplicate CVE-2023-47212
@@ -58,6 +57,9 @@ Header files for development with %{name}.
 
 %install
 %make_install LIBDIR=%{_lib}
+
+install -D --preserve-timestamps --mode=0644 \
+	--target='%{buildroot}%{_includedir}/stb' deprecated/stb_image_resize.h
 
 %files -n %{libname}
 %{_libdir}/lib%{name}.so.%{major}{,.*}
