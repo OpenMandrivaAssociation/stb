@@ -8,7 +8,7 @@
 
 Name:           stb
 Version:        0
-Release:        0.%{date}.0
+Release:        0.%{date}.2
 Group:          System/Libraries
 Summary:        stb single-file public domain libraries for C/C++
 License:        MIT or Public Domain
