@@ -59,7 +59,8 @@ Header files for development with %{name}.
 %make_install LIBDIR=%{_lib}
 
 install -D --preserve-timestamps --mode=0644 \
-	--target='%{buildroot}%{_includedir}/stb' deprecated/stb_image_resize.h
+	--target='%{buildroot}%{_includedir}/stb' \
+	deprecated/stb_image_resize.h deprecated/stb_image_resize2.h
 
 %files -n %{libname}
 %{_libdir}/lib%{name}.so.%{major}{,.*}
